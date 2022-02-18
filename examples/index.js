@@ -4,7 +4,7 @@ const http = require('http');
 const SMSGate = require("./../src/index.js");
 
 const server = http.createServer((req, res) => {
-    let gate = new SMSGate.Client('http://localhost:9000/bulk_server')
+    let gate = new SMSGate.Client('http://127.0.0.1:8086/bulk_server')
     switch (req.url) {
         case '/send':
         //send without dlr            
@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
                 "sender": "BulkTest",
                 "receiver": "4179123456",
                 "dcs": SMSGate.DCS_GSM,
-                "text": "This is test message"
+                "text": "This is test message, spec char:ç"
             }).then(response => {
                 console.log("SMS sent", response);
                 res.end("SMS sent" +  JSON.stringify(response));

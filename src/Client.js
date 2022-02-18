@@ -22,7 +22,6 @@ class Client {
 
         let httpClient = this.httpClient()
         const data = JSON.stringify(message)
-
         const urlparams = url.parse(this.submitURL)
 
         const options = {
@@ -31,8 +30,7 @@ class Client {
             path: urlparams.path,
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'Content-Length': data.length
+                'Content-Type': 'application/json; charset=UTF-8'
             }
         }
 
