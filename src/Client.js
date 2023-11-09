@@ -49,8 +49,8 @@ class Client {
                         resolve(JSON.parse(body));
                     } else {
                         let err = {
-                            code: 0,
-                            message: "Unknown error"
+                            code: res.statusCode,
+                            message: res.statusMessage
                         };
                         try {
                             let errBody =  JSON.parse(body)

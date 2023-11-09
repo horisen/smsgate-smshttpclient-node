@@ -4,7 +4,7 @@ const http = require('http');
 const SMSGate = require("./../src/index.js");
 
 const server = http.createServer((req, res) => {
-    let gate = new SMSGate.Client('http://127.0.0.1:8086/bulk_server')
+    let gate = new SMSGate.Client('http://sms.horisen.info:12020/bulk/sendsms')
     switch (req.url) {
         case '/send':
         //send without dlr            
